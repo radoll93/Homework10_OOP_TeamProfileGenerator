@@ -155,7 +155,7 @@ inquirer.prompt(managerQuestions)
         case 'Engineer': 
             engineerPrompt();
             employees.push(res);
-            fs.writeFile('index.html', writeFile(res), (err) => 
+            fs.writeFile('dist/index.html', writeFile(res), (err) => 
             err? console.err(err) : console.log('writeFile success'));
             break;
         case 'Intern':

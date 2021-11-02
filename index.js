@@ -1,6 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const intern = require('./lib/intern');
 
 
 const employees = [];
@@ -10,22 +12,22 @@ const managerQuestions = [
     {
         type: 'input',
         message: "What is the team manager's name?",
-        name: 'managername'
+        name: 'name'
     },
     {
         type: 'input',
         message: "What is the team manager's id?",
-        name: 'managerid'
+        name: 'id'
     },
     {
         type: 'input',
         message: "What is the team manager's email?",
-        name: 'manageremail'
+        name: 'email'
     },
     {
         type: 'input',
         message: "What is the team manager's office number?",
-        name: 'managernumber'
+        name: 'number'
     },    
     {
         type: 'list',
@@ -43,17 +45,17 @@ const engineerQuestions = [
     {
         type: 'input',
         message: "What is your engineer's name?",
-        name: 'engineername'
+        name: 'name'
     },
     {
         type: 'input',
         message: "What is your engineer's id?",
-        name: 'engineerid'
+        name: 'id'
     },
     {
         type: 'input',
         message: "What is your engineer's email?",
-        name: 'engineeremail'
+        name: 'email'
     },
     {
         type: 'input',
@@ -76,22 +78,22 @@ const internQuestions = [
     {
         type: 'input',
         message: "What is your intern's name?",
-        name: 'internname'
+        name: 'name'
     },
     {
         type: 'input',
         message: "What is your intern's id?",
-        name: 'internid'
+        name: 'id'
     },
     {
         type: 'input',
         message: "What is your intern's email?",
-        name: 'internemail'
+        name: 'email'
     },
     {
         type: 'input',
         message: "What school does your intern graduate?",
-        name: 'github'
+        name: 'school'
     },    
     {
         type: 'list',
@@ -118,6 +120,7 @@ const engineerPrompt = () => {
                 employees.push(res);
                 break;
             case 'There is no one to add':
+                employees.push(res);
                 console.log(employees);
                 break;
         }
@@ -137,6 +140,7 @@ const internPrompt = () => {
                 employees.push(res);
                 break;
             case 'There is no one to add':
+                employees.push(res);
                 console.log(employees);
                 break;
         }
@@ -151,6 +155,8 @@ inquirer.prompt(managerQuestions)
         case 'Engineer': 
             engineerPrompt();
             employees.push(res);
+            fs.writeFile('index.html', writeFile(res), (err) => 
+            err? console.err(err) : console.log('writeFile success'));
             break;
         case 'Intern':
             internPrompt();
@@ -158,6 +164,7 @@ inquirer.prompt(managerQuestions)
             break;
         case 'There is no one to add':
             console.log(employees);
+            employees.push(res);
             break;
     }
 })
@@ -168,3 +175,7 @@ inquirer.prompt(managerQuestions)
 //nothing pick -> another function, scr folder - passing the array of employees
 
 managerPrompt();
+
+const writeFile = () {
+
+}

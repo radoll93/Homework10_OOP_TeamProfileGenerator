@@ -1,0 +1,23 @@
+{
+  "name": "homework10_oop_teamprofilegenerator",
+  "version": "1.0.0",
+  "description": "It is to generate team profile",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radoll93/Homework10_OOP_TeamProfileGenerator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/radoll93/Homework10_OOP_TeamProfileGenerator/issues"
+  },
+  "homepage": "https://github.com/radoll93/Homework10_OOP_TeamProfileGenerator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "jest": "^27.3.1"
+  }
+}

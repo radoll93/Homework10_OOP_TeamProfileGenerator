@@ -15,6 +15,13 @@ In the web page, you can easily access to their email, github profile.
 The starting command is **node index**
 
 
+![generator result](./src/TeamProfileGenerator.gif)
+
+
+This is the sample HTML file from the excution
+![sample HTML](./src/HTMLfile.png)
+
+
 
 
 ## Table of Contents 
@@ -63,6 +70,9 @@ The starting command is **node index**
   To run the test, run the following command:
   
   **npm test**
+
+![test result](./src/TeamProfileGenerator_test.gif)
+
 
   ---
 

@@ -12,7 +12,7 @@ There are 3 roles; manager, engineer and intern.
 
 In the web page, you can easily access to their email, github profile.
 
-The starting command is **npm start**
+The starting command is **node index**
 
 
 

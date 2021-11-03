@@ -1,3 +1,26 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
 .navbar-brand {
     margin: auto;
+    font-size: 2.5rem;
+}
+
+.card {
+    margin: 10px;
+    text-align: center;
+    border-radius: 10%;
+    box-shadow: 5px 5px gray;
+}
+
+ul, li {
+    text-align: left;
+}
+
+.card-title {
+    font-weight: bolder;
+    font-size: 2rem;
 }

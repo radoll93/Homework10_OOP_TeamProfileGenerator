@@ -1,72 +1,59 @@
 
-const generateManager = (arr) => {
-
-  for(let i=0; i<arr.length; i++) {
-    if (arr[i].getRole() === 'Manager') {
-      const {name, id, email, number} = arr[i];
+const generateManager = (manager) => {
 
     return `
     <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">${name}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+      <h5 class="card-title">${manager.getName()}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${manager.getRole()}</h6>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Id : ${id}</li>
-        <li class="list-group-item">Email : ${email}</li>
-        <li class="list-group-item">Office number: ${number}</li>
+        <li class="list-group-item">Id : ${manager.getId()}</li>
+        <li class="list-group-item">Email : ${manager.getEmail()}</li>
+        <li class="list-group-item">Office number: ${manager.getNumber()}</li>
       </ul>
     </div>
     </div>
-    `}
-  }
+    `
 };
 
 
-const generateEngineer = (arr) => {
-  for(let i=0; i<arr.length; i++) {
-    if (arr[i].getRole() === 'Engineer') {
-      const {name, id, email, github} = arr[i];
-    
+const generateEngineer = (Engineer) => {
     return `
   
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">${name}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
+      <h5 class="card-title">${Engineer.getName()}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${Engineer.getRole()}</h6>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Id : ${id}</li>
-        <li class="list-group-item">Email : ${email}</li>
-        <li class="list-group-item">GitHub: ${github}</li>
+        <li class="list-group-item">Id : ${Engineer.getId()}</li>
+        <li class="list-group-item">Email : ${Engineer.getEmail()}</li>
+        <li class="list-group-item">GitHub: ${Engineer.getGithub()}</li>
       </ul>
     </div>
   </div>
   
   
-  `}
-  }
+  `
 }
 
-const generateIntern = (arr) => {
-  for(let i=0; i<arr.length; i++) {
-    if (arr[i].getRole() === 'Intern') {
-      const {name, id, email, school} = arr[i];    
+const generateIntern = (Intern) => {
+
   return `
   
   
   <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">${name}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
+    <h5 class="card-title">${Intern.getName()}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${Intern.getRole()}</h6>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Id : ${id}</li>
-      <li class="list-group-item">Email : ${email}</li>
-      <li class="list-group-item">School: ${school}</li>
+      <li class="list-group-item">Id : ${Intern.getId()}</li>
+      <li class="list-group-item">Email : ${Intern.getEmail()}</li>
+      <li class="list-group-item">School: ${Intern.getSchool()}</li>
     </ul>
   </div>
   </div>
   
-  `}
-  }
+  `
 }
 
 

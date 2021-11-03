@@ -6,7 +6,6 @@ const Intern = require('./lib/intern');
 const PageTemplate = require('./src/page_template')
 
 
-const employees = [];
 
 
 const managerQuestions = [
@@ -114,8 +113,7 @@ const managerPrompt = () => {
     .then((res) => {
         const {name, id, email, number} = res;
         const manager = new Manager(name, id, email, number);
-        employees.push(manager);
-        writeManager(employees);
+        writeManager(manager);
     
         switch(res.team) {
             case 'Engineer': 
@@ -137,8 +135,7 @@ const engineerPrompt = () => {
     .then(res => {
         const {name, id, email, github} = res;
         const engineer = new Engineer(name, id, email, github);
-        employees.push(engineer);
-        writeEngineer(employees);
+        writeEngineer(engineer);
 
         switch(res.team) {
             case 'Engineer': 
@@ -158,11 +155,10 @@ const engineerPrompt = () => {
 const internPrompt = () => {
     inquirer.prompt(internQuestions)
     .then(res => {
-        
         const {name, id, email, school} = res;
         const intern = new Intern(name, id, email, school);
-        employees.push(intern);
-        writeIntern(employees);
+
+        writeIntern(intern);
 
         switch(res.team) {
             case 'Engineer': 
@@ -187,24 +183,28 @@ managerPrompt();
 
 
 const writeManager = (employees) => {
-    fs.appendFile('./dist/index.html', PageTemplate.generateManager(employees), err => err ? console.error(err) : console.log('manager writing is success'))
-    
-    }
+    fs.appendFile('./dist/index.html', PageTemplate.generateManager(employees), (err) => 
+    err? console.error(err) : console.log('success to add')
+    )
+}
 
 const writeEngineer = (employees) => {
-    fs.appendFile('./dist/index.html', PageTemplate.generateEngineer(employees), err => err ? console.error(err) : console.log('engineer writing is success'))
-    
-    }
+    fs.appendFile('./dist/index.html', PageTemplate.generateEngineer(employees), (err) => 
+    err? console.error(err) : console.log('success to add')
+    )
+}
 
 const writeIntern = (employees) => {
-    fs.appendFile('./dist/index.html', PageTemplate.generateIntern(employees), err => err ? console.error(err) : console.log('intern writing is success'))
-    
-    }
+    fs.appendFile('./dist/index.html', PageTemplate.generateIntern(employees), (err) => 
+    err? console.error(err) : console.log('success to add')
+    )
+}
 
 const closingToFile = () => {
-    fs.appendFile('./dist/index.html', PageTemplate.closingHTML(), err => err ? console.error(err) : console.log('closing writing is success'))
-    
-    }
+    fs.appendFile('./dist/index.html', PageTemplate.closingHTML(), (err) => 
+    err? console.error(err) : console.log('All done! See the created file')
+    )
+}
 
 
 

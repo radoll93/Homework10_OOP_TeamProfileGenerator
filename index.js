@@ -2,11 +2,12 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
-const intern = require('./lib/intern');
+const Intern = require('./lib/intern');
+const PageTemplate = require('./src/page_template')
 
 
 const employees = [];
-// == -> push to the array, all employess!
+
 
 const managerQuestions = [
     {
@@ -110,40 +111,47 @@ const internQuestions = [
 const engineerPrompt = () => {
     inquirer.prompt(engineerQuestions)
     .then(res => {
+        const {name, id, email, github} = res;
+        const engineer = new Engineer(name, id, email, github);
+        employees.push(engineer);
+        writeEngineer(employees);
+
         switch(res.team) {
             case 'Engineer': 
                 engineerPrompt();
-                employees.push(res);
                 break;
             case 'Intern':
                 internPrompt();
-                employees.push(res);
                 break;
             case 'There is no one to add':
-                employees.push(res);
-                console.log(employees);
+                closingToFile();
                 break;
         }
+
     })
 };
 
 const internPrompt = () => {
     inquirer.prompt(internQuestions)
     .then(res => {
+        
+        const {name, id, email, school} = res;
+        const intern = new Intern(name, id, email, school);
+        employees.push(intern);
+        writeIntern(employees);
+
         switch(res.team) {
             case 'Engineer': 
                 engineerPrompt();
-                employees.push(res);
                 break;
             case 'Intern':
                 internPrompt();
-                employees.push(res);
                 break;
             case 'There is no one to add':
-                employees.push(res);
-                console.log(employees);
+                closingToFile();
                 break;
         }
+
     })
 };
 
@@ -151,31 +159,55 @@ const internPrompt = () => {
 const managerPrompt = () => {
 inquirer.prompt(managerQuestions)
 .then((res) => {
+    const {name, id, email, number} = res;
+    const manager = new Manager(name, id, email, number);
+    employees.push(manager);
+    writeManager(employees);
+
     switch(res.team) {
         case 'Engineer': 
             engineerPrompt();
-            employees.push(res);
-            fs.writeFile('dist/index.html', writeFile(res), (err) => 
-            err? console.err(err) : console.log('writeFile success'));
             break;
         case 'Intern':
             internPrompt();
-            employees.push(res);
             break;
         case 'There is no one to add':
-            console.log(employees);
-            employees.push(res);
+            closingToFile();
+
             break;
     }
+    
 })
 };
 
 
-//switch로 pick engineer/ intern/ nothing -> write the file
-//nothing pick -> another function, scr folder - passing the array of employees
-
 managerPrompt();
 
-const writeFile = () {
 
-}
+
+const writeManager = (employees) => {
+    fs.appendFile('./dist/index.html', PageTemplate.generateManager(employees), err => err ? console.error(err) : console.log('manager writing is success'))
+    console.log(employees);
+    
+    }
+
+const writeEngineer = (employees) => {
+    fs.appendFile('./dist/index.html', PageTemplate.generateEngineer(employees), err => err ? console.error(err) : console.log('engineer writing is success'))
+    console.log(employees);
+    
+    }
+
+const writeIntern = (employees) => {
+    fs.appendFile('./dist/index.html', PageTemplate.generateIntern(employees), err => err ? console.error(err) : console.log('intern writing is success'))
+    console.log(employees);
+    
+    }
+
+const closingToFile = (data) => {
+    fs.appendFile('./dist/index.html', PageTemplate.closingHTML(data), err => err ? console.error(err) : console.log('closing writing is success'))
+    console.log(employees);
+    
+    }
+
+
+

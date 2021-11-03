@@ -1,61 +1,76 @@
-const generateManager = (data) => {
-return `
 
-<div class="card" style="width: 18rem;">
-<div class="card-body">
-  <h5 class="card-title">Manager name</h5>
-  <h6 class="card-subtitle mb-2 text-muted">Role name</h6>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Id : </li>
-    <li class="list-group-item">Email : </li>
-    <li class="list-group-item">number: </li>
-  </ul>
-</div>
-</div>
+const generateManager = (arr) => {
+
+  for(let i=0; i<arr.length; i++) {
+    if (arr[i].getRole() === 'Manager') {
+      const {name, id, email, number} = arr[i];
+
+    return `
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">${name}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Id : ${id}</li>
+        <li class="list-group-item">Email : ${email}</li>
+        <li class="list-group-item">Office number: ${number}</li>
+      </ul>
+    </div>
+    </div>
+    `}
+  }
+};
 
 
-`
+const generateEngineer = (arr) => {
+  for(let i=0; i<arr.length; i++) {
+    if (arr[i].getRole() === 'Engineer') {
+      const {name, id, email, github} = arr[i];
+    
+    return `
+  
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">${name}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Id : ${id}</li>
+        <li class="list-group-item">Email : ${email}</li>
+        <li class="list-group-item">GitHub: ${github}</li>
+      </ul>
+    </div>
+  </div>
+  
+  
+  `}
+  }
 }
 
-const generateIntern = (data) => {
+const generateIntern = (arr) => {
+  for(let i=0; i<arr.length; i++) {
+    if (arr[i].getRole() === 'Intern') {
+      const {name, id, email, school} = arr[i];    
   return `
   
   
   <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">Intern name</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Role name</h6>
+    <h5 class="card-title">${name}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Intern</h6>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Id : </li>
-      <li class="list-group-item">Email : </li>
-      <li class="list-group-item">School: </li>
+      <li class="list-group-item">Id : ${id}</li>
+      <li class="list-group-item">Email : ${email}</li>
+      <li class="list-group-item">School: ${school}</li>
     </ul>
   </div>
   </div>
   
-  `
+  `}
   }
+}
 
-  const generateEngineer = (data) => {
-    return `
-    
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Engineer name</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Role name</h6>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Id : </li>
-          <li class="list-group-item">Email : </li>
-          <li class="list-group-item">github: </li>
-        </ul>
-      </div>
-    </div>
-    
-    
-    `
-    }
 
-const closingHTML = (data) => {
+const closingHTML = () => {
   return `
 
 

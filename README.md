@@ -19,7 +19,8 @@ The starting command is **node index**
 
 
 This is the sample HTML file from the excution
-![sample HTML](./src/HTMLfile.png)
+
+![sample HTML](./src/HTMLfile.PNG)
 
 
 

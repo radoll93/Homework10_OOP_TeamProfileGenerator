@@ -1,3 +1,33 @@
+//to make starting code in HTML
+
+const generateStarting = () => {
+
+  return `
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>My Team Members</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="./css.css">
+  </head>
+  
+  <body>
+  
+      <nav class="navbar navbar-light bg-danger p-5">
+          <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 text-white">My Team</span>
+          </div>
+      </nav>
+  
+  
+      <div class="container-xl m-2 d-flex">
+  `
+};
+
+// to make manager code
 
 const generateManager = (manager) => {
 
@@ -16,6 +46,7 @@ const generateManager = (manager) => {
     `
 };
 
+//to make engineer code 
 
 const generateEngineer = (Engineer) => {
     return `
@@ -35,6 +66,8 @@ const generateEngineer = (Engineer) => {
   
   `
 }
+
+// to make intern code 
 
 const generateIntern = (Intern) => {
 
@@ -57,6 +90,8 @@ const generateIntern = (Intern) => {
 }
 
 
+// to make closing HTML code
+
 const closingHTML = () => {
   return `
 
@@ -70,5 +105,5 @@ const closingHTML = () => {
 
 
 
-module.exports = {generateManager, generateIntern, generateEngineer, closingHTML};
+module.exports = {generateStarting, generateManager, generateIntern, generateEngineer, closingHTML};
 

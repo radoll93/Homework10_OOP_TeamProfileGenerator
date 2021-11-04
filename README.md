@@ -15,12 +15,14 @@ In the web page, you can easily access to their email, github profile.
 The starting command is **node index**
 
 
-![generator result](./src/TeamProfileGenerator.gif)
+
+![generator result](./src/TeamProfileGenerator(2).gif)
+![generator result](./src/TeamProfileGenerator(1).gif)
 
 
-This is the sample HTML file from the excution
+This is the sample HTML file from the execution
 
-![sample HTML](./src/HTMLfile.PNG)
+![sample HTML](./src/HTMLpage_screenshot.PNG)
 
 
 

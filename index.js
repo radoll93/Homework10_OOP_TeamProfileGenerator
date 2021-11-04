@@ -1,3 +1,5 @@
+// all reference files
+
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require('./lib/Manager');
@@ -7,6 +9,7 @@ const PageTemplate = require('./src/page_template')
 
 
 
+// prompt questions 
 
 const managerQuestions = [
     {
@@ -108,7 +111,10 @@ const internQuestions = [
 ]
 
 
+// make prompt 
+
 const managerPrompt = () => {
+    writeStarting();
     inquirer.prompt(managerQuestions)
     .then((res) => {
         const {name, id, email, number} = res;
@@ -176,11 +182,14 @@ const internPrompt = () => {
 };
 
 
+// write to file
 
 
-managerPrompt();
-
-
+const writeStarting = () => {
+    fs.appendFile('./dist/index.html', PageTemplate.generateStarting(), (err) => 
+    err? console.error(err) : console.log('Start to make your team!')
+    )
+}
 
 const writeManager = (employees) => {
     fs.appendFile('./dist/index.html', PageTemplate.generateManager(employees), (err) => 
@@ -207,4 +216,6 @@ const closingToFile = () => {
 }
 
 
+// run the code
 
+managerPrompt();

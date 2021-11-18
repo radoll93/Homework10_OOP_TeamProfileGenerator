@@ -14,7 +14,8 @@ In the web page, you can easily access to their email, github profile.
 
 The starting command is **node index**
 
-
+The video link is below
+https://drive.google.com/drive/folders/1PqUcGU4hiIXtUPkVZ7ifSwUhAAqCkHGt
 
 ![generator result](./src/TeamProfileGenerator(2).gif)
 ![generator result](./src/TeamProfileGenerator(1).gif)
